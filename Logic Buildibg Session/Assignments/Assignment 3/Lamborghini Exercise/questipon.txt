@@ -1,0 +1,117 @@
+1. Write a program to calculate the sum of the first 50 natural numbers. 
+2. Write a program to compute the factorial of the number 10. 
+3. Write a program to print all multiples of 7 between 1 and 100. 
+4. Write a program to reverse the digits of the number 1234. The output should be 4321. 
+5. Write a program to print the Fibonacci sequence up to the number 21. 
+6. Write a program to find and print the first 5 prime numbers. 
+7. Write a program to calculate the sum of the digits of the number 9876. The output should be 
+30 (9 + 8 + 7 + 6). 
+8. Write a program to count down from 10 to 0, printing each number. 
+9. Write a program to find and print the largest digit in the number 4825. 
+10. Write a program to print all even numbers between 1 and 50. 
+11. Write a Java program to demonstrate the use of both pre-increment and post-decrement 
+operators in a single expression 
+12. Write a program to draw the following pattern: 
+***** 
+***** 
+***** 
+***** 
+***** 
+13. Write a program to print the following pattern: 
+1 
+2*2 
+3*3*3 
+4*4*4*4 
+5*5*5*5*5 
+5*5*5*5*5 
+4*4*4*4 
+3*3*3 
+2*2 
+1 
+14. Write a program to print the following pattern: 
+* 
+ ** 
+ *** 
+ ***** 
+ ******* 
+ ********* 
+15. Write a program to print the following pattern: 
+    * 
+   ** 
+  *** 
+ **** 
+***** 
+16. Write a program to print the following pattern: 
+    * 
+   *** 
+  ***** 
+ ******* 
+********* 
+17. Write a program to print the following pattern: 
+***** 
+ **** 
+  *** 
+   ** 
+    * 
+18. Write a program to print the following pattern: 
+    * 
+   *** 
+  ***** 
+ ******* 
+  ***** 
+   *** 
+    * 
+19. Write a program to print the following pattern: 
+1 
+1*2 
+1*2*3 
+1*2*3*4 
+1*2*3*4*5 
+20. Write a program to print the following pattern: 
+5 
+5*4 
+5*4*3 
+5*4*3*2 
+5*4*3*2*1 
+21. Write a program to print the following pattern: 
+1 
+1*3 
+1*3*5 
+1*3*5*7 
+1*3*5*7*9 
+22. Write a program to print the following pattern: 
+********* 
+******* 
+***** 
+*** 
+* 
+*** 
+***** 
+******* 
+********* 
+23. Write a program to print the following pattern: 
+11111 
+22222 
+33333 
+44444 
+55555 
+1 
+22 
+333 
+4444 
+55555 
+1 
+12 
+123 
+1234 
+24. Write a program to print the following pattern: 
+25. Write a program to print the following pattern: 
+12345 
+26. Write a program to print the following pattern: 
+ 
+ 
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
