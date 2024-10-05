@@ -1,0 +1,28 @@
+java input and output Stream 
+subclass of inputeStream
+--fileInputeStream
+--byteInputeStream
+--ObjectInputeStream
+
+method of inpute stram 
+read
+-read byte from stream and stores in the specified array
+available-->return the number of bytes available in the inpute stream
+--> close () -->close inpute stream  
+
+
+
+-----------------------------------------------------------------------
+
+output Stream
+java.io
+
+subclass
+--fileOutputStream
+--byteOutputStream
+--ObjectOutputStream
+
+write () --> write specified byte to the output stream 
+write (byte [] array) --> writes the bytes from the specified array to the oputput stream
+flush () --> forces to write all data present in output streamto the destination
+close () --> close the poutput stream  
