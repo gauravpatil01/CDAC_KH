@@ -1,0 +1,13 @@
+
+1.Which field of the Customers table is the primary key?
+In the CUSTOMERS table, the primary key is typically the Cnum field. The Cnum (customer number) is intended to uniquely identify each customer in the table. This ensures that no two customers can have the same Cnum, maintaining data integrity.
+
+
+2.What is the 4th column of the Customers table?
+The 4th column of the CUSTOMERS table is Rating. This column contains integer values that presumably represent a rating associated with each customer.
+
+3.What is another word for row? For column?
+Another word for row is record or tuple. For column, another term is field or attribute.
+
+4.Why isn’t it possible to see the first five rows of a table?
+
