@@ -1,0 +1,321 @@
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 36
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ^C
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| advancedecommercedb |
+| amitdb              |
+| assignment1         |
+| cdacmumbai          |
+| exerciseone         |
+| information_schema  |
+| mysql               |
+| org                 |
+| performance_schema  |
+| sys                 |
++---------------------+
+10 rows in set (0.05 sec)
+
+mysql> use exerciseone;
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_exerciseone |
++-----------------------+
+| j                     |
+| p                     |
+| s                     |
+| sdept                 |
+| semp                  |
+| spj                   |
++-----------------------+
+6 rows in set (0.02 sec)
+
+mysql> selsect Distinct City FROM s;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selsect Distinct City FROM s' at line 1
+mysql> SELECT DISTINCT City FROM S;
++-------------+
+| City        |
++-------------+
+| New York    |
+| Los Angeles |
+| Chicago     |
+| London      |
+| Paris       |
+| Athens      |
++-------------+
+6 rows in set (0.01 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_exerciseone |
++-----------------------+
+| j                     |
+| p                     |
+| s                     |
+| sdept                 |
+| semp                  |
+| spj                   |
++-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> selsect * from `s`;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selsect * from `s`' at line 1
+mysql> selsect * from s;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selsect * from s' at line 1
+mysql> select *  from s order by city DESC;
++------+------------+--------+-------------+
+| S#   | Sname      | Status | City        |
++------+------------+--------+-------------+
+| S2   | Supplier B |     20 | Paris       |
+| S1   | Supplier A |     10 | New York    |
+| S2   | Supplier B |     20 | Los Angeles |
+| S1   | Supplier A |     10 | London      |
+| S3   | Supplier C |     30 | Chicago     |
+| S3   | Supplier C |     30 | Athens      |
++------+------------+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM P ORDER BY CITY ASC ,PNAME ASC;
++------+--------+-------+--------+-------------+
+| P#   | Pname  | Color | Weight | City        |
++------+--------+-------+--------+-------------+
+| P3   | Part Z | Green |     20 | Chicago     |
+| P1   | Part A | Red   |   10.5 | London      |
+| P3   | Part C | Green |     12 | London      |
+| P2   | Part Y | Blue  |     15 | Los Angeles |
+| P1   | Part X | Red   |   10.5 | New York    |
+| P2   | Part B | Blue  |     15 | Paris       |
++------+--------+-------+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM S WHERE STATUS BETWEEN 10 AND 20;
++------+------------+--------+-------------+
+| S#   | Sname      | Status | City        |
++------+------------+--------+-------------+
+| S1   | Supplier A |     10 | New York    |
+| S2   | Supplier B |     20 | Los Angeles |
+| S1   | Supplier A |     10 | London      |
+| S2   | Supplier B |     20 | Paris       |
++------+------------+--------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT PNAME,WEIGHT FROM P WHERE Weight NOT BETWEEN 10 AND 25;
+Empty set (0.00 sec)
+
+mysql> SELECT Pname FROM P WHERE Pname LIKE 'S%';
+Empty set (0.00 sec)
+
+mysql> SELECT Pname FROM P WHERE Pname LIKE 'S%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM S WHERE City LIKE 'L%';
++------+------------+--------+-------------+
+| S#   | Sname      | Status | City        |
++------+------------+--------+-------------+
+| S2   | Supplier B |     20 | Los Angeles |
+| S1   | Supplier A |     10 | London      |
++------+------------+--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM J WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM J;
++------+---------------+-------------+
+| J#   | Jname         | City        |
++------+---------------+-------------+
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project A     | Athens      |
+| J2   | Project B     | London      |
++------+---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> INSERT INTO J (J#, Jname, City) VALUES
+    -> ('J1', 'OneProject', 'London'),
+    -> ('J2', 'RanchoProject', 'Paris'),
+    -> ('J3', 'SunshineProject', 'Athens');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('J1', 'OneProject', 'London'),
+('J2', 'RanchoProject', 'Paris'),
+('J3', 'Sunshi' at line 2
+mysql> SELECT * FROM J WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM J WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> INSERT INTO J (J#, Jname, City) VALUES
+    -> ('J1', 'AnaProject', 'London'),
+    -> ('J2', 'OneProject', 'Paris'),
+    -> ('J3', 'Sunshine', 'Athens');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('J1', 'AnaProject', 'London'),
+('J2', 'OneProject', 'Paris'),
+('J3', 'Sunshine'' at line 2
+mysql> INSERT INTO J (J#, Jname, City) VALUES('J1', 'AnaProject', 'London');
+    -> ^C
+mysql> SELECT CONCAT(UPPER(LEFT(Sname,1)), LOWER(SUBSTRING(Sname,2 )))AS Capital FROM S;
++------------+
+| Capital    |
++------------+
+| Supplier a |
+| Supplier b |
+| Supplier c |
+| Supplier a |
+| Supplier b |
+| Supplier c |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT UPPER (Sname) AS UpperCase FROM  S;
++------------+
+| UpperCase  |
++------------+
+| SUPPLIER A |
+| SUPPLIER B |
+| SUPPLIER C |
+| SUPPLIER A |
+| SUPPLIER B |
+| SUPPLIER C |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT LOWER (Sname) AS LowerCase FROM  S;
++------------+
+| LowerCase  |
++------------+
+| supplier a |
+| supplier b |
+| supplier c |
+| supplier a |
+| supplier b |
+| supplier c |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> select LPAD (Sname ,25) AS PaddedName FROM S;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'LPAD'
+mysql> SELECT LPAD(Sname, 25) AS PaddedName FROM S;
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'LPAD'
+mysql> SELECT LPAD(Sname, 25,' ' ) AS PaddedName FROM S;
++---------------------------+
+| PaddedName                |
++---------------------------+
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
++---------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELSECT REPLACE (SNAME,'la','ro')AS ReplaceName FROM S;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELSECT REPLACE (SNAME,'la','ro')AS ReplaceName FROM S' at line 1
+mysql> SELECT REPLACE (Sname,'la','ro')AS ReplaceName FROM S;
++-------------+
+| ReplaceName |
++-------------+
+| Supplier A  |
+| Supplier B  |
+| Supplier C  |
+| Supplier A  |
+| Supplier B  |
+| Supplier C  |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from S;
++------+------------+--------+-------------+
+| S#   | Sname      | Status | City        |
++------+------------+--------+-------------+
+| S1   | Supplier A |     10 | New York    |
+| S2   | Supplier B |     20 | Los Angeles |
+| S3   | Supplier C |     30 | Chicago     |
+| S1   | Supplier A |     10 | London      |
+| S2   | Supplier B |     20 | Paris       |
+| S3   | Supplier C |     30 | Athens      |
++------+------------+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT REPLACE (REPLACE(SNAME,'l','r'),'a','o')AS ReplaceName FROM S;
++-------------+
+| ReplaceName |
++-------------+
+| Supprier A  |
+| Supprier B  |
+| Supprier C  |
+| Supprier A  |
+| Supprier B  |
+| Supprier C  |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT Sname,CHAR_LENGTH(SNAME)AS NAMELENGTH FROM S;
++------------+------------+
+| Sname      | NAMELENGTH |
++------------+------------+
+| Supplier A |         10 |
+| Supplier B |         10 |
+| Supplier C |         10 |
+| Supplier A |         10 |
+| Supplier B |         10 |
+| Supplier C |         10 |
++------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT  Sname ,CASE Status
+    -> when 10 then 'ten'
+    -> when 20 then 'Twenty'
+    -> when 30 then 'Thirty'
+    -> else 'Other'
+    -> end AS StatusName
+    -> from S;
++------------+------------+
+| Sname      | StatusName |
++------------+------------+
+| Supplier A | ten        |
+| Supplier B | Twenty     |
+| Supplier C | Thirty     |
+| Supplier A | ten        |
+| Supplier B | Twenty     |
+| Supplier C | Thirty     |
++------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select dayname (curr_date )as currentdat;
+ERROR 1054 (42S22): Unknown column 'curr_date' in 'field list'
+mysql> select dayname(current_date )as currentdat;
++------------+
+| currentdat |
++------------+
+| Sunday     |
++------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
