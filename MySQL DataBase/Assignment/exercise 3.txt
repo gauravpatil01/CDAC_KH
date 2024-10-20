@@ -1,0 +1,100 @@
+mysql> SELECT CONCAT(UCASE(LEFT(Sname, 1)), LCASE(SUBSTRING(Sname, 2))) AS CapitalizedName
+    -> FROM S;
++-----------------+
+| CapitalizedName |
++-----------------+
+| Supplier a      |
+| Supplier b      |
+| Supplier c      |
+| Supplier a      |
+| Supplier b      |
+| Supplier c      |
++-----------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT UCASE(Sname) AS UpperCaseName
+    -> FROM S;
++---------------+
+| UpperCaseName |
++---------------+
+| SUPPLIER A    |
+| SUPPLIER B    |
+| SUPPLIER C    |
+| SUPPLIER A    |
+| SUPPLIER B    |
+| SUPPLIER C    |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT LCASE(Sname) AS LowerCaseName
+    -> FROM S;
++---------------+
+| LowerCaseName |
++---------------+
+| supplier a    |
+| supplier b    |
+| supplier c    |
+| supplier a    |
+| supplier b    |
+| supplier c    |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT LPAD(Sname, 25, ' ') AS PaddedName
+    -> FROM S;
++---------------------------+
+| PaddedName                |
++---------------------------+
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
++---------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J
+    -> WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J;
++------+---------------+-------------+
+| J#   | Jname         | City        |
++------+---------------+-------------+
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project A     | Athens      |
+| J2   | Project B     | London      |
++------+---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J
+    -> WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM J WHERE Jname LIKE '__o%'
+    -> ^Z^C
+mysql> SELECT * FROM J WHERE Jname LIKE '__o%';
++------+---------------+-------------+
+| J#   | Jname         | City        |
++------+---------------+-------------+
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project A     | Athens      |
+| J2   | Project B     | London      |
++------+---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql>
