@@ -1,0 +1,216 @@
+mysql> SELECT CONCAT(UCASE(LEFT(Sname, 1)), LCASE(SUBSTRING(Sname, 2))) AS CapitalizedName
+    -> FROM S;
++-----------------+
+| CapitalizedName |
++-----------------+
+| Supplier a      |
+| Supplier b      |
+| Supplier c      |
+| Supplier a      |
+| Supplier b      |
+| Supplier c      |
++-----------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT UCASE(Sname) AS UpperCaseName
+    -> FROM S;
++---------------+
+| UpperCaseName |
++---------------+
+| SUPPLIER A    |
+| SUPPLIER B    |
+| SUPPLIER C    |
+| SUPPLIER A    |
+| SUPPLIER B    |
+| SUPPLIER C    |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT LCASE(Sname) AS LowerCaseName
+    -> FROM S;
++---------------+
+| LowerCaseName |
++---------------+
+| supplier a    |
+| supplier b    |
+| supplier c    |
+| supplier a    |
+| supplier b    |
+| supplier c    |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT LPAD(Sname, 25, ' ') AS PaddedName
+    -> FROM S;
++---------------------------+
+| PaddedName                |
++---------------------------+
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
+|                Supplier A |
+|                Supplier B |
+|                Supplier C |
++---------------------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J
+    -> WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J;
++------+---------------+-------------+
+| J#   | Jname         | City        |
++------+---------------+-------------+
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project A     | Athens      |
+| J2   | Project B     | London      |
++------+---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM J
+    -> WHERE Jname LIKE '__n%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM J WHERE Jname LIKE '__o%'
+    -> ^Z^C
+mysql> SELECT * FROM J WHERE Jname LIKE '__o%';
++------+---------------+-------------+
+| J#   | Jname         | City        |
++------+---------------+-------------+
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project Alpha | New York    |
+| J2   | Project Beta  | Los Angeles |
+| J3   | Project Gamma | Chicago     |
+| J1   | Project A     | Athens      |
+| J2   | Project B     | London      |
++------+---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select min(Status) as MinStatus FROM S;
++-----------+
+| MinStatus |
++-----------+
+|        10 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select * FROM S;
++------+------------+--------+-------------+
+| S#   | Sname      | Status | City        |
++------+------------+--------+-------------+
+| S1   | Supplier A |     10 | New York    |
+| S2   | Supplier B |     20 | Los Angeles |
+| S3   | Supplier C |     30 | Chicago     |
+| S1   | Supplier A |     10 | London      |
+| S2   | Supplier B |     20 | Paris       |
+| S3   | Supplier C |     30 | Athens      |
++------+------------+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select max(Status) as MaxStatus FROM P;
+ERROR 1054 (42S22): Unknown column 'Status' in 'field list'
+mysql> select max(WEIGHT) as MaxStatus FROM P;
++-----------+
+| MaxStatus |
++-----------+
+|        20 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select * FROM P;
++------+--------+-------+--------+-------------+
+| P#   | Pname  | Color | Weight | City        |
++------+--------+-------+--------+-------------+
+| P1   | Part X | Red   |   10.5 | New York    |
+| P2   | Part Y | Blue  |     15 | Los Angeles |
+| P3   | Part Z | Green |     20 | Chicago     |
+| P1   | Part A | Red   |   10.5 | London      |
+| P2   | Part B | Blue  |     15 | Paris       |
+| P3   | Part C | Green |     12 | London      |
++------+--------+-------+--------+-------------+
+6 rows in set (0.00 sec)
+
+
+
+
+mysql> SELECT REPLACE(Sname, 'la', 'ro') AS ReplacedName FROM S;
++--------------+
+| ReplacedName |
++--------------+
+| Supplier A   |
+| Supplier B   |
+| Supplier C   |
+| Supplier A   |
+| Supplier B   |
+| Supplier C   |
++--------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT REPLACE(REPLACE(Sname, 'l', 'r'), 'a', 'o') AS ReplacedName FROM S;
++--------------+
+| ReplacedName |
++--------------+
+| Supprier A   |
+| Supprier B   |
+| Supprier C   |
+| Supprier A   |
+| Supprier B   |
+| Supprier C   |
++--------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT Sname, CHAR_LENGTH(Sname) AS NameLength FROM S;
++------------+------------+
+| Sname      | NameLength |
++------------+------------+
+| Supplier A |         10 |
+| Supplier B |         10 |
+| Supplier C |         10 |
+| Supplier A |         10 |
+| Supplier B |         10 |
+| Supplier C |         10 |
++------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT Sname FROM S WHERE SOUNDEX(Sname) = SOUNDEX('BLOKE');
+Empty set (0.00 sec)
+
+mysql> SELECT Sname, CASE Status
+    ->                WHEN 10 THEN 'Ten'
+    ->                WHEN 20 THEN 'Twenty'
+    ->                WHEN 30 THEN 'Thirty'
+    ->                ELSE 'Other'
+    ->              END AS StatusName
+    -> FROM S;
++------------+------------+
+| Sname      | StatusName |
++------------+------------+
+| Supplier A | Ten        |
+| Supplier B | Twenty     |
+| Supplier C | Thirty     |
+| Supplier A | Ten        |
+| Supplier B | Twenty     |
+| Supplier C | Thirty     |
++------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT DAYNAME(CURRENT_DATE) AS CurrentDay;
++------------+
+| CurrentDay |
++------------+
+| Sunday     |
++------------+
+1 row in set (0.00 sec)
+
+mysql>
