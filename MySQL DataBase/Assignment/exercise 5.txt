@@ -1,0 +1,257 @@
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.S# = SPJ.S#
+    -> GROUP BY S.Sname;
+ERROR 1054 (42S22): Unknown column 'S.S' in 'on clause'
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.S# = SPJ.S#
+    -> GROUP BY S.Sname;
+ERROR 1054 (42S22): Unknown column 'S.S' in 'on clause'
+mysql> DESCRIBE S;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| S#     | char(2)  | YES  |     | NULL    |       |
+| Sname  | char(20) | YES  |     | NULL    |       |
+| Status | int      | YES  |     | NULL    |       |
+| City   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> DESCRIBE SPJ;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| S#    | char(2) | YES  |     | NULL    |       |
+| P#    | char(2) | YES  |     | NULL    |       |
+| J#    | char(2) | YES  |     | NULL    |       |
+| Qty   | int     | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Quantity) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.S_ID = SPJ.S_ID
+    -> GROUP BY S.Sname;
+ERROR 1054 (42S22): Unknown column 'SPJ.Quantity' in 'field list'
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.S# = SPJ.S#
+    -> GROUP BY S.Sname;
+ERROR 1054 (42S22): Unknown column 'S.S' in 'on clause'
+mysql> DESCRIBE S;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| S#     | char(2)  | YES  |     | NULL    |       |
+| Sname  | char(20) | YES  |     | NULL    |       |
+| Status | int      | YES  |     | NULL    |       |
+| City   | char(20) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.`S#` = SPJ.`S#`
+    -> GROUP BY S.Sname;
++--------------+--------------+
+| SupplierName | QuantitySold |
++--------------+--------------+
+| Supplier A   |          300 |
+| Supplier B   |          400 |
+| Supplier C   |          300 |
++--------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT P.Pname AS PartName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM P
+    -> JOIN SPJ ON P.`P#` = SPJ.`P#`
+    -> GROUP BY P.Pname;
++----------+--------------+
+| PartName | QuantitySold |
++----------+--------------+
+| Part X   |          100 |
+| Part Y   |          200 |
+| Part Z   |          200 |
+| Part A   |          100 |
+| Part B   |          200 |
+| Part C   |          200 |
++----------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT J.Jname AS ProjectName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM J
+    -> JOIN SPJ ON J.`J#` = SPJ.`J#`
+    -> GROUP BY J.Jname;
++---------------+--------------+
+| ProjectName   | QuantitySold |
++---------------+--------------+
+| Project Alpha |          200 |
+| Project Beta  |          500 |
+| Project Gamma |          300 |
+| Project A     |          100 |
+| Project B     |          250 |
++---------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT J.Jname AS ProjectName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM J
+    -> JOIN SPJ ON J.`J#` = SPJ.`J#`
+    -> GROUP BY J.Jname;
++---------------+--------------+
+| ProjectName   | QuantitySold |
++---------------+--------------+
+| Project Alpha |          200 |
+| Project Beta  |          500 |
+| Project Gamma |          300 |
+| Project A     |          100 |
+| Project B     |          250 |
++---------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT S.Sname AS SupplierName, P.Pname AS PartName, J.Jname AS ProjectName, SPJ.Qty AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.`S#` = SPJ.`S#`
+    -> JOIN P ON P.`P#` = SPJ.`P#`
+    -> JOIN J ON J.`J#` = SPJ.`J#`;
++--------------+----------+---------------+--------------+
+| SupplierName | PartName | ProjectName   | QuantitySold |
++--------------+----------+---------------+--------------+
+| Supplier A   | Part A   | Project Alpha |          100 |
+| Supplier A   | Part A   | Project Alpha |          100 |
+| Supplier A   | Part X   | Project Alpha |          100 |
+| Supplier A   | Part X   | Project Alpha |          100 |
+| Supplier A   | Part C   | Project Beta  |           50 |
+| Supplier A   | Part C   | Project Beta  |           50 |
+| Supplier B   | Part B   | Project Beta  |          200 |
+| Supplier B   | Part B   | Project Beta  |          200 |
+| Supplier A   | Part Z   | Project Beta  |           50 |
+| Supplier A   | Part Z   | Project Beta  |           50 |
+| Supplier B   | Part Y   | Project Beta  |          200 |
+| Supplier B   | Part Y   | Project Beta  |          200 |
+| Supplier C   | Part C   | Project Gamma |          150 |
+| Supplier C   | Part C   | Project Gamma |          150 |
+| Supplier C   | Part Z   | Project Gamma |          150 |
+| Supplier C   | Part Z   | Project Gamma |          150 |
+| Supplier A   | Part A   | Project Alpha |          100 |
+| Supplier A   | Part A   | Project Alpha |          100 |
+| Supplier A   | Part X   | Project Alpha |          100 |
+| Supplier A   | Part X   | Project Alpha |          100 |
+| Supplier A   | Part C   | Project Beta  |           50 |
+| Supplier A   | Part C   | Project Beta  |           50 |
+| Supplier B   | Part B   | Project Beta  |          200 |
+| Supplier B   | Part B   | Project Beta  |          200 |
+| Supplier A   | Part Z   | Project Beta  |           50 |
+| Supplier A   | Part Z   | Project Beta  |           50 |
+| Supplier B   | Part Y   | Project Beta  |          200 |
+| Supplier B   | Part Y   | Project Beta  |          200 |
+| Supplier C   | Part C   | Project Gamma |          150 |
+| Supplier C   | Part C   | Project Gamma |          150 |
+| Supplier C   | Part Z   | Project Gamma |          150 |
+| Supplier C   | Part Z   | Project Gamma |          150 |
+| Supplier A   | Part A   | Project A     |          100 |
+| Supplier A   | Part A   | Project A     |          100 |
+| Supplier A   | Part X   | Project A     |          100 |
+| Supplier A   | Part X   | Project A     |          100 |
+| Supplier A   | Part C   | Project B     |           50 |
+| Supplier A   | Part C   | Project B     |           50 |
+| Supplier B   | Part B   | Project B     |          200 |
+| Supplier B   | Part B   | Project B     |          200 |
+| Supplier A   | Part Z   | Project B     |           50 |
+| Supplier A   | Part Z   | Project B     |           50 |
+| Supplier B   | Part Y   | Project B     |          200 |
+| Supplier B   | Part Y   | Project B     |          200 |
++--------------+----------+---------------+--------------+
+44 rows in set (0.00 sec)
+
+mysql> SELECT S.Sname AS SupplierName
+    -> FROM S
+    -> JOIN SPJ ON S.`S#` = SPJ.`S#`
+    -> JOIN J ON J.`J#` = SPJ.`J#`
+    -> WHERE S.City = J.City;
++--------------+
+| SupplierName |
++--------------+
+| Supplier A   |
+| Supplier B   |
+| Supplier C   |
+| Supplier A   |
+| Supplier B   |
+| Supplier C   |
+| Supplier A   |
++--------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT P.Pname AS PartName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM P
+    -> JOIN SPJ ON P.`P#` = SPJ.`P#`
+    -> WHERE P.Color = 'Red'
+    -> GROUP BY P.Pname;
++----------+--------------+
+| PartName | QuantitySold |
++----------+--------------+
+| Part A   |          100 |
+| Part X   |          100 |
++----------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT S.Sname AS SupplierName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM S
+    -> JOIN SPJ ON S.`S#` = SPJ.`S#`
+    -> WHERE S.Status = 20
+    -> GROUP BY S.Sname;
++--------------+--------------+
+| SupplierName | QuantitySold |
++--------------+--------------+
+| Supplier B   |          400 |
++--------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT P.Pname AS PartName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM P
+    -> JOIN SPJ ON P.`P#` = SPJ.`P#`
+    -> WHERE P.Weight > 14
+    -> GROUP BY P.Pname;
++----------+--------------+
+| PartName | QuantitySold |
++----------+--------------+
+| Part B   |          200 |
+| Part Y   |          200 |
+| Part Z   |          200 |
++----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT J.Jname AS ProjectName, J.City, SUM(SPJ.Qty) AS TotalQuantitySold
+    -> FROM J
+    -> JOIN SPJ ON J.`J#` = SPJ.`J#`
+    -> GROUP BY J.Jname, J.City
+    -> HAVING SUM(SPJ.Qty) > 500;
+Empty set (0.00 sec)
+
+mysql> SELECT P.Pname AS PartName, SUM(SPJ.Qty) AS QuantitySold
+    -> FROM P
+    -> JOIN SPJ ON P.`P#` = SPJ.`P#`
+    -> WHERE P.Weight < 15
+    -> GROUP BY P.Pname;
++----------+--------------+
+| PartName | QuantitySold |
++----------+--------------+
+| Part A   |          100 |
+| Part X   |          100 |
+| Part C   |          200 |
++----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT E1.EMPNAME AS EmployeeName, E2.EMPNAME AS ManagerName
+    -> FROM SEMP E1
+    -> JOIN SEMP E2 ON E1.DEPTHEAD = E2.EMPNO;
++--------------+-------------+
+| EmployeeName | ManagerName |
++--------------+-------------+
+| ALI          | SUNIL       |
+| GEORGE       | HIREN       |
++--------------+-------------+
+2 rows in set (0.00 sec)
+
+mysql>
