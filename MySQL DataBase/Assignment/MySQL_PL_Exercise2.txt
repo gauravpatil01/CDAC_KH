@@ -1,0 +1,375 @@
+MySQL 
+Exercise 2
+ 
+1. Select from any table a number and determine whether it is within a given range (for example, between 1 and 10). 
+
+create procedure abc()
+begin
+declare x int;
+select deptno into x from emp where ename='allen';
+if x between 10 and 30 then
+insert into tempp values(x,'in range');
+else 
+insert into tempp values(x,'not in range');
+end if;
+end;//
+
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select deptno into x from emp where ename='SMITH';
+    -> if x between 10 and 30 then
+    -> insert into tempp values(x,'in range');
+    -> else
+    -> insert into tempp values(x,'not in range');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select deptno into x from emp where ename='SMITH';
+    -> if x between 10 and 30 then
+    -> insert into tempp values(x,'in range');
+    -> else
+    -> insert into tempp values(x,'not in range');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc;
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+----------+
+| fir  | sec      |
++------+----------+
+|   20 | in range |
++------+----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop procedure abc//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select deptno into x from emp where ename='clerk';
+    -> if x between 10 and 30 then
+    -> insert into tempp values(x,'in range');
+    -> else
+    -> insert into tempp values(x,'not in range');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+--------------+
+| fir  | sec          |
++------+--------------+
+|   20 | in range     |
+| NULL | not in range |
++------+--------------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop procedure abc//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select deptno into x from emp where ename='Miller';
+    -> if x between 10 and 30 then
+    -> insert into tempp values(x,'in range');
+    -> else
+    -> insert into tempp values(x,'not in range');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+--------------+
+| fir  | sec          |
++------+--------------+
+|   20 | in range     |
+| NULL | not in range |
+|   10 | in range     |
++------+--------------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop procedure abc//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select deptno into x from emp where ename='allen';
+    -> if x between 10 and 30 then
+    -> insert into tempp values(x,'in range');
+    -> else
+    -> insert into tempp values(x,'not in range');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+--------------+
+| fir  | sec          |
++------+--------------+
+|   20 | in range     |
+| NULL | not in range |
+|   10 | in range     |
+|   30 | in range     |
++------+--------------+
+4 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+
+
+
+ 
+2. Select from any table three positive integers representing the sides of a triangle, and determine whether they form a valid triangle. Hint: In a triangle, the sum of any two sides must always be greater than the third side. 
+
+create procedure abc()
+begin
+declare x int;
+declare y int;
+declare z int;
+select weight into x from p where pname='part1';
+select weight into y from p where pname='part2'; 
+select weight into z from p where pname='part3';
+if x+y>z and y+z>x and x+z>y then
+	insert into tempp values (1,'its tringle');
+else 
+	insert into tempp values (-1,'not tringle');
+end if;
+
+end//
+
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> declare y int;
+    -> declare z int;
+    -> select weight into x from p where pname='part1';
+    -> select weight into y from p where pname='part2';
+    -> select weight into z from p where pname='part3';
+    -> if x+y>z and y+z>x and x+z>y then
+    ->  insert into tempp values (1,'its tringle');
+    -> else
+    ->  insert into tempp values (-1,'not tringle');
+    -> end if;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.04 sec)
+
+mysql> call s;
+    -> //
++------+-------------+
+| fir  | sec         |
++------+-------------+
+|    1 | its tringle |
++------+-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+ 
+3. Check if a given a year is a leap year. The condition is:- year should be (divisible by 4 and not divisible by 100) or (divisible by 4 and divisible by 400.). The year should be Selected from some table. 
+ 
+create procedure abc()
+begin
+declare year int;
+select left(hiredate,4) into year from emp where empno=7369;
+if mod(year,4)=0 then
+	if mod(year,400)=0 or mod(year,100)!=0 then
+		insert into tempp values (year,'leap');
+	end if;
+else 
+	insert into  tempp values(year,'not leap');
+end if;
+end;
+//
+ 
+ mysql> create procedure abc()
+    -> begin
+    -> declare year int;
+    -> select left(hiredate,4) into year from emp where empno=7934;
+    -> if mod(year,4)=0 then
+    ->  if mod(year,400)=0 or mod(year,100)!=0 then
+    ->          insert into tempp values (year,'leap');
+    ->  end if;
+    -> else
+    ->  insert into  tempp values(year,'not leap');
+    -> end if;
+    -> end;
+    -> //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.04 sec)
+
+mysql> call s//
++------+----------+
+| fir  | sec      |
++------+----------+
+| 1982 | not leap |
++------+----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+ 
+ 
+mysql> create procedure abc()
+    -> begin
+    -> declare year int;
+    -> select left(hiredate,4) into year from emp where empno=7369;
+    -> if mod(year,4)=0 then
+    ->  if mod(year,400)=0 or mod(year,100)!=0 then
+    ->          insert into tempp values (year,'leap');
+    ->  end if;
+    -> else
+    ->  insert into  tempp values(year,'not leap');
+    -> end if;
+    -> end;
+    -> //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+----------+
+| fir  | sec      |
++------+----------+
+| 1982 | not leap |
+| 1980 | leap     |
++------+----------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+ 
+4. Write a program that Selects from any table two character strings. Your program should then determine if one character string exists inside another character string. 
+
+
+create procedure abc()
+begin
+declare str1 varchar(50);
+declare str2 varchar(50);
+
+select sname into str1 from s where `s#`='s5';
+select sname into str2 from s where `s#`='s7';
+if locate(str1,str2)>0 then 
+	insert into tempp values(1, 'str 2 in str1');
+elseif locate(str2,str1)>0 then 
+	insert into tempp values (2,'str1 in str2');
+else 
+	insert into tempp values (3,'not substring');
+end if;
+end;
+//
+
+
+mysql> create procedure abc()
+    -> begin
+    -> declare str1 varchar(50);
+    -> declare str2 varchar(50);
+    ->
+    -> select sname into str1 from s where `s#`='s5';
+    -> select sname into str2 from s where `s#`='s20';
+    -> if locate(str1,str2)>0 then
+    ->  insert into tempp values(1, 'str 2 in str1');
+    -> elseif locate(str2,str1)>0 then
+    ->  insert into tempp values (2,'str1 in str2');
+    -> else
+    ->  insert into tempp values (3,'not substring');
+    -> end if;
+    -> end;
+    -> //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call abc
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+--------------+
+| fir  | sec          |
++------+--------------+
+|    2 | str1 in str2 |
++------+--------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop procedure abc//
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create procedure abc()
+    -> begin
+    -> declare str1 varchar(50);
+    -> declare str2 varchar(50);
+    ->
+    -> select sname into str1 from s where `s#`='s5';
+    -> select sname into str2 from s where `s#`='s7';
+    -> if locate(str1,str2)>0 then
+    ->  insert into tempp values(1, 'str 2 in str1');
+    -> elseif locate(str2,str1)>0 then
+    ->  insert into tempp values (2,'str1 in str2');
+    -> else
+    ->  insert into tempp values (3,'not substring');
+    -> end if;
+    -> end;
+    -> //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> call s//
++------+--------------+
+| fir  | sec          |
++------+--------------+
+|    2 | str1 in str2 |
++------+--------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.04 sec)
+
+mysql> call s//
++------+---------------+
+| fir  | sec           |
++------+---------------+
+|    2 | str1 in str2  |
+|    3 | not substring |
++------+---------------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>

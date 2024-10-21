@@ -1,0 +1,252 @@
+MySQL 
+Exercise 1 
+
+1. Write a program that computes the perimeter and the area of a rectangle. Define your own values for the length and width. (Assuming that L and W are the length and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W. 
+
+mysql> create procedure abc()
+    -> begin
+    -> declare L float default 6.0;
+    -> declare W float default 9.0;
+    -> declare per float;
+    -> declare area float;
+    -> set per=2*(L+W);
+    -> set area=L*W;
+    -> insert into tempp values (per,'perimeter');
+    -> insert into tempp values (area,'Area');
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.04 sec)
+
+mysql> call s//
++------+-----------+
+| fir  | sec       |
++------+-----------+
+|   30 | perimeter |
+|   54 | Area      |
++------+-----------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+ 
+2. Write a program that declares an integer variable called num, assigns a value to it, and computes and inserts into the tempp table the value of the variable itself, its square, and its cube. 
+
+create procedure abc()
+begin
+declare num int default 10;
+declare squ int;
+declare cub int;
+set squ=num*num;
+set cub=num*num*num;
+insert into tempp values(num,'number');
+insert into tempp values(squ,'Square');
+insert into tempp values (cub,'cube');
+end//
+
+mysql> call abc//
+Query OK, 1 row affected (0.02 sec)
+
+mysql> call s
+    -> //
++------+--------+
+| fir  | sec    |
++------+--------+
+|   10 | number |
+|  100 | Square |
+| 1000 | cube   |
++------+--------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+
+
+ 
+3. Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice versa. The required formulae are:- C= (F-32)*5/9 F= 9/5*C + 32 
+
+create procedure abc()
+begin 
+declare temp int default 37;
+declare cels int;
+declare far int;
+set far=(9/(5*temp))+32;
+set cels=(far-32)*5/9;
+insert into tempp values (far,'farenhite');
+insert into tempp values (cels,'celsius');
+end//
+
+mysql> create procedure abc()
+    -> begin
+    -> declare temp int default 37;
+    -> declare cels int;
+    -> declare far int;
+    -> set far=(9/(5*temp))+32;
+    -> set cels=(far-32)*5/9;
+    -> insert into tempp values (far,'farenhite');
+    -> insert into tempp values (cels,'celsius');
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+-----------+
+| fir  | sec       |
++------+-----------+
+|   32 | farenhite |
+|    0 | celsius   |
++------+-----------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+
+
+ 
+4. Convert a number of inches into yards, feet, and inches. For example, 124 inches equals 3 yards, 1 foot, and 4 inches. 
+
+create procedure abc()
+begin
+declare inch int default 124;
+declare yard int;
+declare feet int;
+declare reminch int;
+set yard=inch/36;
+set inch=mod(inch,36);
+set feet=inch/12;
+set inch=mod(inch,12);
+set reminch=inch;
+insert into tempp values(yard,'Yards');
+insert into tempp values(feet,'feet');
+insert into tempp values(reminch,'inches');
+end;//
+
+mysql> create procedure abc()
+    -> begin
+    -> declare inch int default 124;
+    -> declare yard int;
+    -> declare feet int;
+    -> declare reminch int;
+    -> set yard=inch/36;
+    -> set inch=mod(inch,36);
+    -> set feet=inch/12;
+    -> set inch=mod(inch,12);
+    -> set reminch=inch;
+    -> insert into tempp values(yard,'Yards');
+    -> insert into tempp values(feet,'feet');
+    -> insert into tempp values(reminch,'inches');
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc//
+Query OK, 1 row affected (0.02 sec)
+
+mysql> call s//
++------+--------+
+| fir  | sec    |
++------+--------+
+|    3 | Yards  |
+|    1 | feet   |
+|    4 | inches |
++------+--------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+ 
+5. Write a program that enables a user to input an integer. The program should then state whether the integer is evenly divisible by 5. 
+
+create procedure abc(x int)
+begin
+if mod(x,5)=0 then
+	insert into tempp values(x,'evenely divided');
+else 
+	insert into tempp values(x,'not evenly');
+end if;
+
+end;//
+
+mysql> create procedure abc(x int)
+    -> begin
+    -> if mod(x,5)=0 then
+    ->  insert into tempp values(x,'evenely divided');
+    -> else
+    ->  insert into tempp values(x,'not evenly');
+    -> end if;
+    ->
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call abc(10)//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call abc(11)//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+-----------------+
+| fir  | sec             |
++------+-----------------+
+|   10 | evenely divided |
+|   11 | not evenly      |
++------+-----------------+
+2 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+ 
+6. Your block should read in two real numbers and tell whether the product of the two numbers is equal to or greater than 100.
+
+create procedure abc(x int,y int)
+begin
+declare prod int;
+set prod = x*y;
+if prod>100 then
+insert into tempp values(prod,'greater');
+elseif prod <100 then 
+insert into tempp values(prod,'less');
+else 
+insert into tempp values(prod,'equal');
+end if;
+end;//
+
+
+mysql> create procedure abc(x int,y int)
+    -> begin
+    -> declare prod int;
+    -> set prod = x*y;
+    -> if prod>100 then
+    -> insert into tempp values(prod,'greater');
+    -> elseif prod <100 then
+    -> insert into tempp values(prod,'less');
+    -> else
+    -> insert into tempp values(prod,'equal');
+    -> end if;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call abc(10,8)//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call abc(10,10)//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call abc(10,11)//
+Query OK, 1 row affected (0.01 sec)
+
+mysql> call s//
++------+---------+
+| fir  | sec     |
++------+---------+
+|   80 | less    |
+|  100 | equal   |
+|  110 | greater |
++------+---------+
+3 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
