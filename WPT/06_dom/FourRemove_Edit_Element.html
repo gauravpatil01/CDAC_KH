@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom remove </title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+
+<ul>
+    <li class="language"> 
+        <li>JavaScript</li>
+    </li>
+</ul>
+  </body>
+  <script> //add language feature 
+    function addLanguage(langName){
+        const li =document.createElement('li');  //list element created 
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    } 
+    addLanguage("python")    //each time method run all time all process runs 
+    addLanguage("cpp")
+
+    //optimize way (because we not traverse whole tree )
+    function addOptimizationWayToAdd(langName){
+        const li =document.createElement('li');  //list element created 
+        const addText =document.createTextNode(langName)
+        li.appendChild(addText)
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptimizationWayToAdd('golang');
+
+
+    //EDIT
+    const secondLnag = document.querySelector("li:nth-child(2)")
+    secondLnag.innerHTML ="Mojo"   //byt it not optimize 
+//or
+    const newLi = document.createElement('li')
+    newLi.textContent="Mojo"
+    secondLnag.replaceWith(newLi)
+// or
+// const firstLang = document.querySelector("li:first-child");
+// firstLang.outerHTML = '<li> TypeScript </li>';
+
+//remove golang
+
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove()
+  </script>
+</html>

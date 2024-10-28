@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121; color: #fff"></body>
+  <script>
+    //create element
+    const div = document.createElement("div");
+    console.log(div); //created
+    // set names
+    div.className = "main"; //add class name
+    div.id = Math.round(Math.random() * 10 + 1); //random id set
+
+    //custom Attribute set
+
+    div.setAttribute("title", "generated title "); //title -> key   generate d title is like value
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+
+    //created but only in memory  how to display it on page
+    const addTeaxt = document.createTextNode("learn with Gaurav ");   //creatsd 
+    div.append(addTeaxt);                                            
+
+    document.body.appendChild(div)     //attached to webpage 
+  </script>
+</html>

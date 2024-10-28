@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>GAURAV PRATAP PATIL</h1>
+    <button id="stop" >stop</button>
+  </body>
+
+  //set_time_out ,clear_Interval is function
+
+  <script>
+    console.log(
+      "setTimeout  have ()  --> handler its like callback and conmtain time  "
+    );
+
+    setTimeout(function () {
+      console.log("Gaurav");
+    }, 2000); // perform and stop
+
+
+    // setInterval(function () {
+    //   console.log("patil ");
+    // }, 1000); //repeat every 1 second
+
+
+    // easy way like make function variable and then call
+
+    const sayMyFullName =function(){
+        console.log("gaurav patil ");
+        
+    }
+    setTimeout(sayMyFullName,1000);
+
+    //change the name which is currently printing 
+    const changeAfter2sec =function(){
+        document.querySelector('h1').
+        innerHTML="best language us javascript"
+    }
+    const changeMe = setTimeout(changeAfter2sec,2000)
+
+    //stop clearTimeOut  -->take reference 
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe);
+        console.log("stopped");
+        
+    })
+
+  </script>
+</html>

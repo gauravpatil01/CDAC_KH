@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>GAURAV PRATAP PATIL</h1>
+    <button id="start">Start</button>
+    <button id="stop" stop>Stop</button>
+  </body>
+
+  <script>
+    // console.log("set interval with date ");
+
+    // setInterval(function () {
+    //   console.log("gaurav ", Date.now());
+    // }, 1000);
+
+    const sayDate = function () {
+      console.log("hello", Date.now());
+    };
+   const intervalid = setInterval(sayDate, 1000);
+
+   clearInterval(intervalid);
+  </script>
+</html>
