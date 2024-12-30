@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Donation_Database.Models.Donation>
+
+@{
+    ViewData["Title"] = "GetAllDonation";
+}
+
+<h2>Donation List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>DonationID</th>
+            <th>Donor Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Purpose</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donation in Model)
+        {
+            <tr>
+                <td>@donation.DonationId</td>
+                <td>@donation.DonorName</td>
+                <td>@donation.Amount</td>
+                <td>@donation.Date</td>
+                <td>@donation.Purpose</td>
+                <td>
+                    <a asp-action="UpdateDonation" asp-route-id="@donation.DonationId" class="btn btn-primary">Edit</a>
+                    <form asp-action="DeleteDonation" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@donation.DonationId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="AddDonation" class="btn btn-success">Add New Donation</a>
