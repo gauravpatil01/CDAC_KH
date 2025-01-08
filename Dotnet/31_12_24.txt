@@ -1,0 +1,162 @@
+
+Disconnected Data Access CRUD Operations
+ORM: Entity Framework Core
+Concurrency:
+State less Applications
+explicit invocation of function vs implicit invocation of function
+
+Normal function vs Callback function
+Normal function vs Arrow Funcation
+Blocking call vs NonBlocking call
+Direct call vs Indirect call
+Synchronous call vs Asynchronous call
+All action methods belong to Controller are invoked indirectly
+
+Build Rich Client UI Application using Winforms (Classical Windows Library)
+		Every GUI is defined by a Form
+
+	CLR-----Common Language Runtime (Execution Engine of .net)
+	CTS-----Common Type System
+			CLS: Common Language Specification
+			FCL: Framework Class Libraries
+			     base core libraries:
+					System.io,
+					System.Reflection,
+					Newtonsoft.JSON
+				Winforms:Windows Forms Library
+				WinFX :Windows Foundation Frameworks
+	 			WPF---Windows Presentation Foundation
+				WCF---Windows Communication Foundation ( SOA, SAAS services)
+				WIF---Windows Identity Foundation-- (Authentication & Authorization)
+				WF-----Windows Workflow Foundation- (Automated Business Process workflow)
+ 
+Difference between Windows Application Enviornment  and
+		   Web Application Enviornement
+
+Difference between Stand alone Enviornment  and
+		   Distributed  Enviornement
+
+Difference between Single User Application Enviornment  and
+		  Multi User Application Enviornement
+
+Difference between Windows Forms based Enviornment  and
+		   Web Page based Application Enviornement
+
+Difference between Windows GUI based Application Enviornment (Winforms, WPF)  and
+		   Web GUI based Application Enviornement (asp.net MVC)
+		   Web API based Application Enviornment ( asp.net Rest API)
+
+Difference between Windows Event Handlers based Enviornment  and
+		   Web Controller Action methods based  Enviornement
+
+Graphics Editor
+
+asp.net Web Application:
+:
+Using Asynchronous programming with MVC
+Routing
+Entity Framework Code First Approach
+
+
+
+
+
+
+
+
+C#, Database programming, GUI programming
+					Windows Based 
+					Web Based----asp.net  MVC
+						     asp.net Web API
+
+Middleware Topics:
+
+Adv. ASP.NET Concepts:
+Asp.net Application Services:
+
+	Web Application : (state less) (HTTP)
+			  (Request-Response Life Cycle)
+Web Application
+	 Back End	
+			  (Potential customers)	
+	  		  2,00,000 users
+			  ShoppingCart  ( collection of items selected to purchase)
+	
+	
+	 (Persisted)	    (Persisted)
+
+	  (database)	    (databse)
+			    (Caching)---State to  be maintained in Cache
+			    Cache: temp Buffer for storing information
+	
+	Web application  : Shopping Portal
+				Web Appplication +  Application Services  + data Services
+				MVC		     state manamment	    database  inventory, Bill, payments
+						     Shopping cart
+
+	 (Browser)		    (Web Server)		(data base server)
+	 Client Side state mgmt	    Server Side statemgmt 	  database				
+	  Querstring		    Session	
+	  Cookies			 Session expiray
+	  Web Storage API			ShoppingCart
+		localstorage
+		sessionstorage
+		indexdb
+	        
+		
+
+	 Application Data + Application State
+	 Catalog
+	 Orders
+	 Shipment
+	 Customers
+
+
+	asp.net Web application Services:  (Program.cs)
+				( external services  and middlewares)
+				session managment service
+					session management services to  be configured with Builder
+						This session will be maintained for each user for next 15 minutes
+					session managment middleware to be added into Middleware Pipeline
+
+					Dependency Injection of ShoppingCartService in Side  Controller action method
+						sothat data can be stored into session
+					        data can be retrieved from session
+						data can be updated or removed from session
+						
+
+				localization Multilingual service
+				output Cache Services(to increase performance of aplication)
+						     (reduce round trips  between web server and database server)
+				Authentication Services + Authorization services
+				(Member ship and Roles managment)
+				......
+				......
+				......
+				......
+
+
+State Management using Session
+Localization Demo
+Caching
+Cookie Based Authentication
+JWT Authentication
+Cors Policy enabling
+Web API + React Application Integration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

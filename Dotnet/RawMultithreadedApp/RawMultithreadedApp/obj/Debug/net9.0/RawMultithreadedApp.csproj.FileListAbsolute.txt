@@ -1,0 +1,14 @@
+D:\tryout\CDAC\RawMultithreadedApp\bin\Debug\net9.0\RawMultithreadedApp.exe
+D:\tryout\CDAC\RawMultithreadedApp\bin\Debug\net9.0\RawMultithreadedApp.deps.json
+D:\tryout\CDAC\RawMultithreadedApp\bin\Debug\net9.0\RawMultithreadedApp.runtimeconfig.json
+D:\tryout\CDAC\RawMultithreadedApp\bin\Debug\net9.0\RawMultithreadedApp.dll
+D:\tryout\CDAC\RawMultithreadedApp\bin\Debug\net9.0\RawMultithreadedApp.pdb
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.AssemblyInfoInputs.cache
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.AssemblyInfo.cs
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.csproj.CoreCompileInputs.cache
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.dll
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\refint\RawMultithreadedApp.dll
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.pdb
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\RawMultithreadedApp.genruntimeconfig.cache
+D:\tryout\CDAC\RawMultithreadedApp\obj\Debug\net9.0\ref\RawMultithreadedApp.dll

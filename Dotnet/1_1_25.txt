@@ -1,0 +1,127 @@
+
+Options:
+
+1.Step by step behave like a student and implement each concept of 
+  of databsase connectity, ORM, CRUD, State management in todays 5 hours
+
+2.play as lab faculty and help  student while implementing each concept of 
+  of databsase connectity, ORM, CRUD, State management in todays 5 hours
+
+Hands on for building confidence in .net Core Application with 
+	database connectivity, State managment, Controllers, Repository pattern
+1.Create simple solution
+2.Create simple console Application
+3.Define connection string in configuration file in project (appsettings.json)
+4..Access connnection string programmatically from configuration file.
+
+
+5.Create Simple Web Application (ASP.NET MVC or Web API) with appsettings.json
+6.Access connecstring from appsettings.json in to MVC Application  Controller  (HomeController, ProductsController) 
+  with Action method Index, GetById, Insert, Update
+7.Create asp.net MVC Web application project with connection string into appsettings.json
+
+8.Add layered architecture into MVC project using Controllers, Services, Repositories
+9.Invoke connection string into repository  database crud operations ( connected, disconnected, ORM)
+10.Setup proper dependency injection for this loosely coupled layer as highly cohesive using DI
+
+
+Database CRUD Operations using Entity Framework (Code First Approach (CFA))
+Invoke your database server mysql 
+Create new Empty Database
+
+Create Blank Solution
+Add new Console Application project
+11.Create Another project for CRUD operations using Entity framework for data base Mysql 
+12.Implement Code First Approach (CFA) for mysql database to perform CRUD operations using Migrations
+13.Implement Code First Approach for multiple entities having one to many relationship against data tables with primary-foriegn key relationship.
+
+14.Create Folders Entities, Contexts, Repositories
+15.Add EntityFramework Dependency packages using nugget package manager
+  .Microsoft.EntityFrameworkCore.dll
+.Pamelo.EntityFramework.dll
+16.Add Employee.cs, Department.cs, Blog.cs, Post.cs, BlogPost.cs  Business Entity Classes into Entities folder
+17.Add HRDbContext class, BlogDbContext classes into folder Contexts
+18.Add DataRepository Class inside Repository Folder of project
+19. Add CRUD Operations methods For invoking DbContext  
+
+
+________________________________________________________________________________________________________________________
+Web Application Services:
+	State Management:
+
+	Every Web Application user
+
+		Storing Customer specific information  across Multiple stateless request
+
+		Client Side State Management
+			QueryString------- http://localhost:8989/login?username=ravi ----httpContext.Request.Querystring["username"]
+			Cookie-----------4096 byte (4K)--------------------------------httpContext.Request.Cookies["token"]
+			WebStorage:
+				LocalStorage
+				SessionStorage
+				IndexDB
+		
+		Parmanent Persisted Data Managemetn
+				Files------------------------xml, .json, .dat (serialization and deserialization)
+				databases--------------------tables------ORM, ADO.net( connected or disconnected)
+
+
+20.Create MVC Web Application for State Management
+21.Add new Controller ProductsController, ShoppingCartController with respective Action methods and Views
+22.Implement Client Side State Management using LocalStorage, SessionStorage, Query String, Cookie
+
+Before writing following this steps:
+
+
+
+
+Agenda for 2_2_25
+
+Pending :
+	Server Side State Managment
+Session variables------------current user requests specific data ( profile, shoppingCart)
+Application Variable--------all user requests specific data (global data at server)
+	(product catalog, general settings for all users
+
+23.Implement Server Side State Management using  Server Side Session
+24.Add Distributed Cache Service and Session Services with IOC container of asp.net mvc application.
+25.Set up middleware for session 
+26.Use HttpContext.Session for getting data from session state or setting data to session state for each respective user interaction.
+Caching
+Authentication and Authroization
+Cookie based Authentication
+JWT(JSON Web Token) based Authentication
+Localization (Multi-lingual Support)
+.....
+.....
+asp.net Web API project with React Integration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

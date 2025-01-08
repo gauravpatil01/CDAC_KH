@@ -1,0 +1,90 @@
+Date:2_1_25
+C# feature: Property,Indexer
+
+Arrays: single dimensional, multi-dimensioal
+	Jagged array
+
+
+Custom Data structure: struct, Node,
+Custom Collection: Linklist, Tree, Graph
+inbuilt Collections : Dictionary, List, Array
+
+
+Web Application Services: we do inbuilt Dictionary objects for state management:
+
+State Management:
+
+Difference between asp.net farmework web app and asp.net core web app
+1.
+2.
+3.
+4.
+
+Similarities between asp.net farmework web app MVC and asp.net core web app MVC
+Controllers, Views, Models
+
+Services, Repositories, Database connectivity (ado.net or ORM entity framework)
+Client Side State management, Server Side State  Management, Authentication Authorization
+Web API
+
+State Management in Web Applications
+
+Client Side State Management
+	local Storage, session Storage, IndexDB
+	QueryString, Cookies, FormCollection
+	
+Server Side State Management
+	TempData
+	Session,
+	Application
+
+ViewBag, ViewData, TempData
+
+Web Application develpment using .net  Framework
+
+Session  state Management:
+Application Life Cycle events in asp.net MVC .net Framework
+Web Application-------web.config, global.asax file
+
+WebApplication:
+		Application_Start
+		Application_End
+		Session_Start
+		Session_End
+		Application_Error
+
+
+Application State Management:
+		Application Variables
+
+OutputCaching
+
+
+
+How do I implement  above concepts into  ASP.NET CORE MVC Application
+
+	Session Management
+	No Application Variable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

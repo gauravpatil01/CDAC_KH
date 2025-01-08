@@ -1,0 +1,108 @@
+Welcome to .net world:
+ 
+Learning is fun.
+
+So let us get started with one more day.
+
+Todays Agenda:
+
+	asp.net mvc core Application   : done
+	building asp.net app	:confident
+
+	Model binding: That is fantastic with the help of taghelpers
+	tag helpers in view :(all tag helpers are extension methods)
+	partial Views: Creating reusable Views Like react components 
+		      but razor views are processed at server side
+
+	Let us get started with next topic:
+
+	connections string will be managed through appsettings.json
+	CRUD Operations using ADO.Net
+	
+	MVC :View
+	Razor Syntax:
+			HTML + C # code + tag helpers
+			.cshtml
+			tag helpers library
+				    : @html.labelFor
+				      @html.textFor
+
+		razor script is parse by  Razor View Engine
+			
+					
+	Model binding:
+	Data Binding:
+
+
+
+
+
+
+Task:
+	Use existing Solution.
+
+	Add new projects to 
+
+
+	Entity layer
+	Add new class library Entities to existing Solution
+	Add new Class Product.cs to  Entities Class Library
+	Add new Class Customer.cs to Entities Class Library
+	Add new Class User.cs to Entities Class
+	
+	Repository layer
+	Add new Class library Repositories to existing Solution
+	Add Interfaces and Implementations folder inside Class library
+	Add Interfaces and Implementations folder inside Class library project
+	Add IDataRepository interface , ProductDBRepository class C# files respective folder of class library project
+	Implement CRUD Operations code to respective files using Database Logic
+	....
+	....
+	
+	Service layer....
+	Add  new Class library Servies to existing Solution
+	Add Interfaces and Implementations folder inside Class library project
+	Add IAuthService, AuthService C# files to class Library project
+	Add I CustomerService, CustomerService C# file to 
+	Add IProdutService , ProductService C# files to class library project
+
+	REST API layer
+	Add new  Web API using template asp.net core Web API
+	Add project references to WebAPI Project using Dependency resolver techniques
+	Use ProductDBRepository and ProductServices features with the help of Dependecy Injection registration in program.cs
+	Use Constructor Dependency Injetion to ProuctsController (API Controller)
+	Add new APIController 
+			ProductsController
+			AuthController
+			CustomersController in existing Web API projet
+
+
+	Implement CRUD Operations logic to ProductsController (API controller) with the help of injected service method calls
+
+	Build Soluion.
+	Test CRUD rest api's using  POST man tool
+	
+	Use chart.js to show barchart, piechart and line graph to show product wise sales
+	using DashboardController
+	Use partial views
+
+	Add action methods to DashboardController to send revenu Data based on product sale
+	action method would send result using json()
+
+	Implement code in BarchartView.cshtml to fetch data from api url
+		http://localhost:65644/salesDashoard/FetchSalesData
+		with the help of fetch method or
+		$.ajax method------jQuery
+	Render the charts with received data on successful rest api invocation
+
+
+
+
+
+
+
+
+
+
+
+

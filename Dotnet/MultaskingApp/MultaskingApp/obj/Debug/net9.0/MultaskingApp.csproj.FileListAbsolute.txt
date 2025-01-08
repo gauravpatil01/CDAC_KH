@@ -1,0 +1,14 @@
+D:\tryout\CDAC\MultaskingApp\bin\Debug\net9.0\MultaskingApp.exe
+D:\tryout\CDAC\MultaskingApp\bin\Debug\net9.0\MultaskingApp.deps.json
+D:\tryout\CDAC\MultaskingApp\bin\Debug\net9.0\MultaskingApp.runtimeconfig.json
+D:\tryout\CDAC\MultaskingApp\bin\Debug\net9.0\MultaskingApp.dll
+D:\tryout\CDAC\MultaskingApp\bin\Debug\net9.0\MultaskingApp.pdb
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.AssemblyInfoInputs.cache
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.AssemblyInfo.cs
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.csproj.CoreCompileInputs.cache
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.dll
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\refint\MultaskingApp.dll
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.pdb
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\MultaskingApp.genruntimeconfig.cache
+D:\tryout\CDAC\MultaskingApp\obj\Debug\net9.0\ref\MultaskingApp.dll

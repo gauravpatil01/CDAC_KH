@@ -1,0 +1,92 @@
+30_12_24
+
+Todays Agenda:
+	Revision
+		My dream is to fly
+		Web API revision
+			Difference between MVC and  Web API project
+			How to create Web API using Minimal Code Strategy
+			dotnet new web api -o VijaysalesWebapi
+			structure of program.cs of minimal code strategy
+			How to create asp.net web api project  with controller using Visual studio. net
+				
+			Using Existing Entities class library to consume Product
+		Database Connectivity using .net 
+		Connected data Access CRUD Operations
+		Disconnected data Access CRUD Operations
+				adapter class Methods:	 Fill , Update
+				MySqlCommandBuilder class:
+						responsible for auto generating commands for DML Commands
+				Sothat update method of adapater would be able track newly inserted rows,
+										           updated existing rows ,
+											   deleted rows using  rows.Add,...
+		Object Relational Mapping (ORM)
+		Entity Framework :  (  Object Relational Mapping technique in .net )
+			It is wrapper for (database connectivity in .net)
+			it is a wrapper for (Ado.NET (CONNECTED AND DISCONNECTE mode))
+		
+		Entity Framework Dependencies:
+
+				nuge packages: (DB Connectors)
+						mysql.Data.EntityFramework.dll
+
+						other third party entity framework package
+								pamelo
+
+			ORM DB Connectors provides you Entity Framework 
+			 DB Connectivity Architecture with 
+				Inbuilt Classes:
+						DBContext,
+						DBSet		
+				Reusable Interaces
+				Set of enumerations,
+				Set extnesion methods
+
+		Steps:
+		
+		(Resolve Dependencies)
+		1.Install nugget packae Microsoft.EntityFramework
+		2.Install nugget package Mysql.Data.EntityFramework
+		(Define Context and dbsets)
+		2.Define ProductDBContext Class  , extend from DBContext class.
+		3.Define Product DB Set
+		(Setup connection string to fetch or transfer data : database)
+		4.override onConfiguraring method of ProductDBContext for connection
+		  setup and Entity Relationship definition
+		(consume Context in consumer application)
+		(consumer application can be constole application, or 
+					     windows application, or 
+					     mvc application , or 
+					     web api projec
+		5.Use ORM Services configuration in program.cs file
+		
+
+	Invoking Stored Procedures from repository layer
+
+	Dapper:
+
+
+	asp.net Core MVC
+	asp.net Core Web API implementation
+
+	
+	Multitasking:
+
+		Multithreading:
+		async and await keyword:
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	

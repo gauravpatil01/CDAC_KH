@@ -1,0 +1,102 @@
+
+Step by Step implementing JWT Token Authentication for Web API
+
+Autentication:
+
+		credentials (username, password)
+		token
+			sessionId---cookie
+			Cookie----token
+			OpenID Authentication:
+			OAuth
+			JWTToken
+		controlled access to the request along with token
+
+
+Steps:
+   asp.net Core Web API Simple Solution
+
+	1.Create blank Solution CDACAuthSolution
+	2.Create Asp.net Core Web API project inside  CDACAuthSolution
+	3.Create API Controller as UsersController
+	4.Add Authenticate Post web API method to validate User
+	5.Add GetAll HTTPGet method to retrive information of all users
+	6.Add User as Entity
+	7.Add IUserService and UserService  service layer for implemeing busines Logic
+
+  Create existing asp.net core web api as Secure Web API using JWT Token
+
+	8.Add JWTAuthentication dependency to  asp.net core web api project
+	9.Add Models for 
+		 extracting data from incomming HTTPWebRequest 
+		 sending data as response from api service back to consumer application
+
+	10.Add new folder Helper
+	11.Add new Class AppSettings class
+	12.Define string Secret to AppSettings class
+	13.Prepare AppSettings Class for IConfiguration Constructor Depenedency Inject.
+	14.Extract Secret Key from _configuration into Secrete Property.
+
+	15.Add  generateToken method to UserSevice
+	16.Create instance of TokenHelpler Class
+	17.Convert scretekey into Bytes using Encryption.ASCII.GetBytes()
+	18.Create Instance of JwtTokenDescriptor to define  claim, expire days, encryption algorith 
+	19.Use TokernHelper instance method createToken(descriptor instance)
+	20.Write generated token as string using Writetoken method
+	21.Return Token to UserServcie. 
+	22.Generate AuthenticateResponse in  UserSerices
+	
+
+_____________________________________________________________________________________________________________________________________________
+Token Verification:
+
+21.Add JWTMiddleware as custom middleware (interceptor)
+			Accessing Token comming from incomming HTTP Request
+			GenerateToken 
+	11.Add Custom Authorize filter inside the project (Custom Attribute)
+			override certain method  for
+					Generating Token
+					Extracting information from incomming Token
+		MyApplication.Helper namespace
+		
+		public class Authorize:AuthorizeAttrute{
+
+		}
+
+22.Attach Authorize custom attribute to action method of web api which you want to secure.
+
+		using MyApplication.Helper;
+		public class UsersController: ControllerBase
+		{
+			public IActionResult  Register(){
+		
+			}
+			public IActionResult  Validate( User  userCredential){
+		
+			}
+	
+			[Authorize]
+			public IActionResult  List<User> GetAll(){
+
+			}
+		}
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

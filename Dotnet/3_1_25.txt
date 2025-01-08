@@ -1,0 +1,159 @@
+Todays Agenda:
+
+Implementing Web API:
+
+1.Building FullStack asp.net core Web API with React
+2.Building asp.net core MVC Application Blended with MVC Controllers as well as API Controllers
+3.Cors Policy ( Configuring CORS policy with IOC container and setting up middleware with  ASP.Core pipeline
+4.How to access REST API in HomeContoller's Index.cshtml using  $.ajax method
+
+
+Creating simple asp.net core Web API project, integrating with React Application
+
+Asp.net core Web API Application with Controllers
+rest api hosted on different port of Kestral Server
+rest api----- CRUD Operations
+ProductsController
+	api EndPoints (api url)
+	GET 	http://localhost:6765/api/products-------action method----() {........ return json data}
+	GET 	http://localhost:6765/api/products/23-------action method----() {...... return json object}
+	POST	http://localhost:6765/api/products-------action method----() {  ... return status code}
+	PUT	http://localhost:6765/api/products/23-------action method----() {... return status code }
+	DELETE  http://localhost:6765/api/products/23-------action method----() {... return status code }
+
+Cors Enabled:
+	CORS Policy:
+	Set Cross Origin Resource Sharing
+	with the help of Cors Services
+	with the help of Middleware
+					
+Remote Frond End Application
+
+React Application (Front End)
+	npm create vite@lates
+	npm install
+	
+	Create React Application
+		create components
+		defined routes
+		Data binding, event binding using hooks
+		fetch or axios. get , put, post, delete
+		to invoke rest api
+		Coding
+	npm run dev
+	
+	http://localhost:8000/-----react app get hosted inside React Development Server
+	
+	Single Page Application (SPA)
+	React-Routing
+	React Components
+		with in react components-----rest api----invoke
+
+	Launch Broswer
+		access url
+		http:://http://localhost:8000/
+	End User
+
+
+Web Application Services:
+	State Management:
+			(in Program.cs file)
+			External Service Configuration with IOC Container
+			Setting up respective  middleware in asp.net middleware pipeline
+	Caching:
+			(in Program.cs file)
+			External Service Configuration with IOC Container
+			Setting up respective  middleware in asp.net middleware pipeline
+
+	Localization : (15 min)
+			(in Program.cs file)
+			External Service Configuration with IOC Container
+			Setting up respective  middleware in asp.net middleware pipeline
+
+
+Security (Web Security : Membership (Authentication & Authorization))
+			Cookie based Authentication
+			JWT Token based Authentication, OpenIdAuthentication,
+			SSO, Multi-factor Authentication
+			(in Program.cs file)
+			External Service Configuration with IOC Container
+			Setting up respective  middleware in asp.net middleware pipeline
+
+For asp.net MVC Framework: (Windows platform)
+	Memebership 
+	Authentication:
+	Type of Authentication:
+	For asp.net Core MVC Framework: ( cross platform) (.net core)
+			Hosting Server: IIS (Internet Information Serivces) Windows 
+			identifying users based on their credentials (login name, password)
+			1.Windows Authentication:(users using Active directory)
+			2.Forms Authentication: (login.cshtml, register.cshtml, database credential verfication logic )
+						AuthController-----action method-----login (get, post)
+			3.Passport Authentication: (SSO)
+					(Single Sing On Concept)
+					delegation to Claims Providers:
+					google, facebook, microsoft, linked in,
+					Aadhar ID
+							
+	For asp.net Core MVC: ( cross platform) (.net core)
+		Authentication :
+		Cookie based authentication
+			1.Basic Authentication:
+				UserService-------------------------Account Verification Logic, Registration logic----Singleton
+
+				Claim-----------------------------Credentials (email address and password for verification)
+				ClaimIdentity
+				ClaimPrinciple
+				HttpContext.SignInAsync (......)
+				[Authroize]
+
+			2.Role based Authentication:
+				UserService-------------------------Account Verification Logic, Registration logic
+								    Role verification             ----Singleton
+
+				Claim-----------------------------Credentials (email address and password for verification)
+				ClaimIdentity
+				ClaimPrinciple
+				HttpContext.SignInAsync (......)
+				[Authroize]
+
+
+
+					
+				 
+
+
+
+
+
+
+How to implement Security for Web Based asp.net application:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
