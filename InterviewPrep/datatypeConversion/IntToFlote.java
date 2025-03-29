@@ -50,5 +50,13 @@ public class IntToFlote {
         String s6 = "12.56";
         Float f6 = Float.parseFloat(s6);
         System.out.println("String to float " + f6);
+
+
+        //  string to character 
+        String s9="gaurav";
+        char [] chArr =s9.toCharArray();
+         System.out.println("String to cj=haracter "+ chArr );
+
+        
     }
 }
